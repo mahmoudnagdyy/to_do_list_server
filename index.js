@@ -5,7 +5,6 @@ import { deleteTasks, removeUnverifiedUser, unCompletedTasks } from './src/utils
 dotenv.config()
 import cors from 'cors'
 const app = express()
-const PORT = 5000
 app.use(cors())
 
 
@@ -19,6 +18,6 @@ removeUnverifiedUser()
 unCompletedTasks()
 deleteTasks()
 
-app.listen(PORT, () => {
+app.listen(PORT || 5000, () => {
     console.log(`Server is running on port ...... ${PORT}`);
 })
