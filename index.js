@@ -18,6 +18,6 @@ removeUnverifiedUser()
 unCompletedTasks()
 deleteTasks()
 
-app.listen(PORT || 5000, () => {
-    console.log(`Server is running on port ...... ${PORT}`);
+app.listen(process.env.PORT || 5000, () => {
+    console.log(`Server is running on port ...... ${process.env.PORT}`);
 })
