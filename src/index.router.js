@@ -7,7 +7,8 @@ import { globalErrorHandler } from './utils/errorHandler.js'
 
 
 export const bootstrap = (app, express) => {
-
+    
+    connectDB()
     app.use(express.json())
     app.use('/auth', authRouter)
     app.use('/user', userRouter)
@@ -18,6 +19,5 @@ export const bootstrap = (app, express) => {
         return res.send('404 Page Not Found')
     })
 
-    connectDB()
 
 }
