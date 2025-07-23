@@ -10,6 +10,9 @@
       {
         "src": "/(.*)",
         "dest": "/"
-      }
+      },
+      { "src": "/user", "dest": "/user.router.js" },
+      { "src": "/auth", "dest": "/auth.router.js" },
+      { "src": "/task", "dest": "/task.router.js" }
     ]
 }
