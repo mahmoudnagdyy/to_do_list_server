@@ -8,6 +8,11 @@ const app = express()
 const PORT = 5000
 app.use(cors())
 
+
+app.get('/', (req, res, next) => {
+    return res.send('Hello World')
+})
+
 bootstrap(app, express)
  
 removeUnverifiedUser()
