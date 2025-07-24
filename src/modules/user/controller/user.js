@@ -432,7 +432,11 @@ export const deleteUser = asyncHandler(
         if(!checkUser){
             return next(new Error('User Not Found'))
         }
-        const user = await userModel.deleteOne({_id: req.user._id})
+        if(checkUser.profilePicture.public_id){
+            await cloudinary.uploader.destroy(checkUser.profilePicture.public_id)
+            await cloudinary.api.delete_folder(`TO_DO_LIST/users/profile/${checkUser._id}`)
+        }
+        await userModel.deleteOne({_id: req.user._id})
         return res.send({message: 'User Deleted Successfully'})
     }
 )
