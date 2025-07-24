@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 import { deleteTasks, removeUnverifiedUser, unCompletedTasks } from './src/utils/cronjob.js'
 dotenv.config()
 import cors from 'cors'
+import { sendEmail } from './src/utils/sendEmail.js'
 const app = express()
 app.use(cors())
 
@@ -17,6 +18,8 @@ bootstrap(app, express)
 removeUnverifiedUser()
 unCompletedTasks()
 deleteTasks()
+
+
 
 app.listen(process.env.PORT || 5000, () => {
     console.log(`Server is running on port ...... ${process.env.PORT}`);
