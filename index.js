@@ -1,10 +1,9 @@
 import express from 'express'
-import { bootstrap } from './src/index.router.js'
 import dotenv from 'dotenv'
-import { deleteTasks, removeUnverifiedUser, unCompletedTasks } from './src/utils/cronjob.js'
 dotenv.config()
+import { bootstrap } from './src/index.router.js'
+import { deleteTasks, removeUnverifiedUser, unCompletedTasks } from './src/utils/cronjob.js'
 import cors from 'cors'
-import { sendEmail } from './src/utils/sendEmail.js'
 const app = express()
 app.use(cors())
 
