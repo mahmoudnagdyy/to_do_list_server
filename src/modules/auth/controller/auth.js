@@ -9,10 +9,15 @@ export const signup = asyncHandler(
 
         const {name, username, email, password} = req.body
 
-        const checkUser = await userModel.findOne({email})
+        const checkUser = await userModel.findOne({
+            $or: [
+                {email},
+                {username}
+            ]
+        })
 
         if(checkUser){
-            return next(new Error('User Already Exists'))
+            return next(new Error('username or email already exist'))
         }
 
         const hashPassword = bcrypt.hashSync(password, +process.env.SALT_ROUND)
