@@ -27,7 +27,7 @@
 
 import { Resend } from "resend";
 
-const resend = new Resend('re_eSQNb1B6_Az77PMq39wD66Zj8cYw3TLcU')
+const resend = new Resend(process.env.RESEND_EMAIL_API_KEY)
 
 export const sendEmail = async ({from = process.env.EMAIL, to, cc, bcc, subject, text, html, attachments} = {}) => {
         
