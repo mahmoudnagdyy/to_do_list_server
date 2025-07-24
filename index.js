@@ -7,7 +7,6 @@ import cors from 'cors'
 const app = express()
 app.use(cors())
 
-
 app.get('/', (req, res, next) => {
     return res.send('Hello World')
 })

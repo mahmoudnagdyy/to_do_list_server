@@ -22,7 +22,7 @@ export const signup = asyncHandler(
 
         const hashPassword = bcrypt.hashSync(password, +process.env.SALT_ROUND)
 
-        const user = await userModel.create({name, username, email, password: hashPassword})
+        const user = await userModel.create({name, username, email, password: hashPassword, confirmEmail: true})
 
         const token = jwt.sign({id: user._id}, process.env.CONFIRM_SIGNATURE, {expiresIn: '1d'})
 
