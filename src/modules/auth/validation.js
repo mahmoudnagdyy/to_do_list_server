@@ -7,11 +7,11 @@ export const signup = joi.object({
     email: joi.string().email().required(),
     password: joi.string().required(),
     confirmPassword: joi.string().valid(joi.ref('password')).required()
-})
+}).required()
 
 
 
 export const login = joi.object({
     email: joi.string().email().required(),
     password: joi.string().required()
-})
+}).required()

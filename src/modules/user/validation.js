@@ -7,10 +7,10 @@ export const updateProfile = Joi.object({
     email: Joi.string().email().required(),
     password: Joi.string().required(),
     confirmPassword: Joi.string().valid(Joi.ref('password')).required()
-})
+}).required()
 
 
 export const forgetPassword = Joi.object({
     password: Joi.string().required(),
     confirmPassword: Joi.string().valid(Joi.ref('password')).required()
-})
+}).required()
