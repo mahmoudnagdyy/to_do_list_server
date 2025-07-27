@@ -413,7 +413,6 @@ export const profilePicture = asyncHandler(
     async(req, res, next) => {
 
         const user = req.user
-        
         const {public_id, secure_url} = await cloudinary.uploader.upload(req.file.path, {
             folder: `TO_DO_LIST/users/profile/${user._id}`,
             public_id: user._id

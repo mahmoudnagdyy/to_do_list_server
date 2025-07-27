@@ -33,14 +33,14 @@ export const auth = asyncHandler(
             }
         })
 
-        if(flag == true){
+        if(flag){
             const checkUser = await userModel.findOne({token})
             if(!checkUser){
                 return next(new Error('User Not Found'))
             }
             const newToken = jwt.sign({id: checkUser._id}, process.env.LOGIN_SIGNATURE, {expiresIn: '1h'})
             const user = await userModel.findByIdAndUpdate({_id: checkUser._id}, {token: newToken}, {new: true})
-            return res.send({message: 'Done', user, token: newToken})
+            return res.send({message: 'Token Expired', token: newToken})
         }
         
         const user = await userModel.findById(decodedData.id)
